@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+
+:root {
+  --bg-colour: #000000; 
+  --text-colour: #fff;
+  --container-colour:#001b53;
+  --button-colour:#d90429;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--bg-colour);
+  color: var(--text-colour);
+  font-family: "Montserrat", sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  overflow: hidden;
+  margin: 0;
+}
+
+.container {
+  background-color: var(--container-colour);
+  padding: 20px 40px;
+  border-radius: 10px;
+}
+
+.container h1 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.container a {
+  text-decoration: none;
+  color: var(--button-colour);
+}
+
+.btn {
+  cursor: pointer;
+  display: inline-block;
+  width: 100%;
+  background-color: var(--button-colour);
+  color: #fff;
+  font-family: inherit;
+  padding: 15px;
+  font-size: 16px;
+  border: 0;
+  border-radius: 10px;
+}
+
+.btn:focus {
+  outline: 0;
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+.text {
+  margin-top: 30px;
+}
+
+.form-control {
+  position: relative;
+  margin: 20px 0 40px;
+  width: 300px;
+}
+
+.form-control input {
+  background-color: transparent;
+  border: 0;
+  border-bottom: 2px var(--text-colour) solid;
+  display: block;
+  width: 100%;
+  padding: 15px 0;
+  font-size: 18px;
+  color: var(--text-colour);
+}
+
+.form-control input:focus,
+.form-control input:valid {
+  outline: 0;
+  border-bottom-color: var(--button-colour);
+}
+
+/* Positioned on the input */
+.form-control label {
+  position: absolute;
+  top: 15px;
+  left: 0;
+}
+
+.form-control label span {
+  display: inline-block;
+  font-size: 18px;
+  min-width: 5px;
+  /* Defines a curve, p0 and p3 are the start of the curve */
+  transition: 0.3s cubic-bezier(0.68, -0.55,0.265,1.55);
+}
+
+.form-control input:focus + label span,
+.form-control input:valid + label span {
+  color: var(--button-colour);
+  /* -ve is up in CSS translate */
+  transform: translateY(-30px);
+}
+
+@media (max-width: 400px) {
+  .form-control {
+    width: 80%;
+  }
+}
